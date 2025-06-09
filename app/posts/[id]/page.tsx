@@ -1,5 +1,4 @@
 import { fetchPostFromApi } from "@/lib/api-service";
-import { getCurrentProjectDomain } from "@/lib/domain-mapper";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +9,8 @@ export default async function PostPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const postId = Number.parseInt(params.id);
+  const { id } = await params;
+  const postId = Number.parseInt(id);
 
   if (isNaN(postId) || postId < 0) {
     notFound();
@@ -18,7 +18,7 @@ export default async function PostPage({
 
   try {
     // 현재 프로젝트의 도메인 자동 감지
-    const communityUrl = "https://trendlogicpro.com"; // 하드코딩된 도메인 (pbn-domains.json 기반)
+    const communityUrl = "https://funkyhorror.net"; // 하드코딩된 도메인 (pbn-domains.json 기반)
 
     // API에서 게시물 데이터 가져오기
     const post = await fetchPostFromApi(communityUrl, postId);
