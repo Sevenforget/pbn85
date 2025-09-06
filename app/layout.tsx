@@ -1,22 +1,27 @@
-import type React from "react"
-import "./globals.css"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import Header from "@/components/header"
-import Footer from "@/components/footer"
+import type React from "react";
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Mindful Blog - 생각과 아이디어를 공유하는 공간",
   description: "디자인, 개발, 생산성, 자기계발에 관한 인사이트를 공유합니다.",
-    generator: 'v0.dev'
-}
+  generator: "v0.dev",
+  verification: {
+    other: {
+      "naver-site-verification": "0b5be26be519344b57ff8195f7c6965bc4fe850f",
+    },
+  },
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="ko">
@@ -28,5 +33,5 @@ export default function RootLayout({
         </div>
       </body>
     </html>
-  )
+  );
 }
